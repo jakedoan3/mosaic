@@ -1,0 +1,156 @@
+.player {
+    --primary: rgb(4, 218, 140);
+    --secondary: rgb(241, 192, 15);
+    display: flex;
+    align-items: center;
+    width: 700px;
+}
+
+.fastSkip {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.fastSkip:hover {
+    color: var(--primary);
+}
+
+.playPause {
+    background-color: var(--secondary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 25%;
+    width: 75px;
+    height: 75px;
+    font-size: 70px;
+    cursor: pointer
+}
+.playPause:hover {
+    color: var(--primary);
+}
+
+.play {
+    position: relative;
+    left: 5px;
+}
+
+.currTime,
+.duration {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+.currTime {
+    margin-left: 30px;
+}
+
+.progress {
+    --bar-bg:  rgb(41, 198, 130);
+    --before-playhead-width: 0; 
+    --before-playhead-color: rgb(4, 132, 85);
+    --playhead:rgb(238, 178, 74);
+    --select-playhead: rgb(204, 132, 8);
+
+    appearance: none;
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+
+/* Safari */
+.progress ::-webkit-slider-runnable-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+/* FireFox */
+
+.progress ::-moz-range-track {
+    background: var(--bar-bg);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 11px;
+    outline: none;
+}
+
+.progress ::-moz-focus-outer {
+    border: 0;
+}
+
+
+/* Chrome and Safari */
+.progress::before {
+    content: "";
+    height: 11px;
+    width: var(--before-playhead-width);
+    background-color: var(--before-playhead-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* firefox */
+.progress::-moz-range-progress {
+    background-color: var(--before-playhead-color);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 11px;
+}
+
+/* chrome and safari */
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--playhead);
+    cursor: pointer;
+    position: relative;
+    margin: -2px 0 0 0;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.progress:active::-webkit-slider-thumb{
+    transform: scale(1.2);
+    background-color: var(--select-playhead);
+}
+
+/* firefox */
+.progress::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: var(--playhead);
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.progress:active::-moz-range-thumb {
+    transform: scale(1,2);
+    background-color: var(--select-playhead);
+}
